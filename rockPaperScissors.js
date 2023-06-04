@@ -27,8 +27,6 @@ function getPlayerChoice() {
     return playerSelection;
   } else {
     alert("Invalid choice! Please choose either rock, paper, or scissors.");
-    /* // reload page if invalid selection
-    location.reload(); */
     return getPlayerChoice();
   }
 
@@ -75,11 +73,23 @@ function playRound(playerSelection, computerSelection) {
   updateScore();
 }
 
-/* function game() {
-  return
-} */
+function game() {
+  while (wins < 5 && losses < 5) {
+    let computerSelection = getComputerChoice();
+    console.log(computerSelection);
+    let playerSelection = getPlayerChoice();
+    console.log(playerSelection);
+    playRound(playerSelection, computerSelection);
+  }
 
-// ran at the end of playRound() to update variable
+  if (wins === 5) {
+    console.log("Game Over!\nYou WIN!")
+  } else {
+    console.log("Game Over!\nYou LOSE!")
+  }
+}
+
+// called at the end of playRound() to update variable
 function updateScore() {
   announceScore = `Wins: ${wins} Losses: ${losses} Ties: ${ties}.`;
   console.log(announceScore);
@@ -91,8 +101,4 @@ let losses = 0;
 let ties = 0;
 let announceScore = `Wins: ${wins} Losses: ${losses} Ties: ${ties}.`
 
-let computerSelection = getComputerChoice();
-console.log(computerSelection);
-let playerSelection = getPlayerChoice();
-console.log(playerSelection);
-playRound(playerSelection, computerSelection);
+game();
