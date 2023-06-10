@@ -101,7 +101,7 @@
     }
   }
 
-  // called at the end of playRound() to update variable
+  // Called at the end of playRound() to update variable
   function updateScore() {
     announceScore = `Wins: ${wins} Losses: ${losses} Ties: ${ties}.`;
     console.log(announceScore);
