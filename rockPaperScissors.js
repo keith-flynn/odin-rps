@@ -71,6 +71,12 @@ function updateScore() {
   const scoreboard = document.createElement('h2')
   scoreboard.innerText = `Wins: ${wins} Losses: ${losses} Ties: ${ties}.`;
   resultsDiv.appendChild(scoreboard);
+
+  if (wins === 5) {
+    alert('You Win!');
+  } else if (losses === 5) {
+    alert('You Lose!');
+  }
 }
 
 // Button event listeners
